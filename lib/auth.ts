@@ -48,6 +48,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       }
       return token;
     },
+    session({ session, token }) {
+      session.user.id = token.sub!;
+      if (typeof token.isAdmin === "boolean") {
+        session.user.isAdmin = token.isAdmin;
+      }
+      return session;
+    },
   },
   session: {
     strategy: "jwt",
