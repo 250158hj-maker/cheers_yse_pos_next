@@ -6,7 +6,7 @@ import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "@/lib/validations";
 
-export const { headers, auth, signIn, signOut } = NextAuth({
+export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
       credentials: {
@@ -33,7 +33,7 @@ export const { headers, auth, signIn, signOut } = NextAuth({
 
         // 初回リクエスト時にJWTセッションのトークンに保持する要素群
         return {
-          id: user.id,
+          id: String(user.id),
           name: user.name,
           isAdmin: user.isAdmin,
         };
@@ -44,8 +44,7 @@ export const { headers, auth, signIn, signOut } = NextAuth({
     jwt({ token, user }) {
       // 初回リクエストのみCredential Providerからトークンに詰める
       if (user) {
-        token.sub = user.id;
-        token.isAdmin = (user as { isAdmin: boolean }).isAdmin;
+        token.isAdmin = user.isAdmin;
       }
       return token;
     },
