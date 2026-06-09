@@ -6,6 +6,10 @@ import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "@/lib/validations";
 
+/**
+ * 認証機能初期化
+ */
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [
     Credentials({
