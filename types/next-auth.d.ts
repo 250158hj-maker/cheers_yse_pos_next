@@ -1,5 +1,10 @@
 import type { DefaultSession } from "next-auth";
 
+/**
+ * Auth.jsに組み込まれているuserにはisAdminプロパティを持っていない
+ * コンパイラに覚えされるためにオーバライドしている
+ */
+
 declare module "next-auth" {
   interface User {
     isAdmin: boolean;
