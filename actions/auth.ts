@@ -5,7 +5,7 @@ import { loginSchema } from "@/lib/validations";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
 
-export async function login(formData: FormData) {
+export async function login(_prevState: unknown, formData: FormData) {
   // Zodによるフォーム入力バリデーション
   const validated = loginSchema.safeParse({
     loginId: formData.get("loginId"),
