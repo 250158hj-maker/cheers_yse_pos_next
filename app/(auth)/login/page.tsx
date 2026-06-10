@@ -1,4 +1,6 @@
-// 画面レイアウト担当
+/**
+ * ログイン画面全体レイアウト描画担当
+ */
 
 export default function LoginPage() {
   return (
