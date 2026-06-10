@@ -1,3 +1,7 @@
+/**
+ * DDL(Drizzle構文)
+ */
+
 import {
   pgTable,
   text,

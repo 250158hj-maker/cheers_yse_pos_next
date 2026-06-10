@@ -1,3 +1,8 @@
+/**
+ * 認証機能初期化
+ * セッション戦略や認証の方式・具体的にどうやって認証するのかを定義
+ */
+
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
@@ -5,10 +10,6 @@ import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import bcrypt from "bcryptjs";
 import { loginSchema } from "@/lib/validations";
-
-/**
- * 認証機能初期化
- */
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [

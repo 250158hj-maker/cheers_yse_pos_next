@@ -1,3 +1,8 @@
+/**
+ * 認証ガードミドルウェア
+ * 認証情報とロールに応じてそれぞれのURLへリダイレクト
+ */
+
 import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
@@ -5,7 +10,7 @@ import { NextResponse } from "next/server";
  * 認証ガード（URLへの侵入を防ぐ）
  */
 
-export default auth(req => {
+export default auth((req) => {
   const { pathname } = req.nextUrl;
   // 認証済みならオブジェクト(true), 未認証ならNull
   const isLoggedIn = req.auth;

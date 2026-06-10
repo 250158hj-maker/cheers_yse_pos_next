@@ -1,3 +1,5 @@
+// 全体レイアウト
+
 import "./globals.css";
 
 export default function RootLayout({

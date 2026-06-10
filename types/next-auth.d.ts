@@ -1,9 +1,10 @@
-import type { DefaultSession } from "next-auth";
-
 /**
+ * Typescriptの型定義
  * Auth.jsに組み込まれているuserにはisAdminプロパティを持っていない
  * コンパイラに覚えされるためにオーバライドしている
  */
+
+import type { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   interface User {

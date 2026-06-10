@@ -1,3 +1,8 @@
+/**
+ * Next.jsの設定
+ * フレームワーク側で静的に制御委することで簡単かつ高パフォーマンスなリダイレクトを実装可能
+ */
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {

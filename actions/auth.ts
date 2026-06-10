@@ -1,3 +1,8 @@
+/**
+ * 認証ロジック本体
+ * ユーザーの入力アクションに応じてリダイレクトやエラーを返す
+ */
+
 "use server";
 
 import { signIn, signOut } from "@/lib/auth";
