@@ -1,6 +1,6 @@
 "use server";
 
-import { signIn } from "@/lib/auth";
+import { signIn, signOut } from "@/lib/auth";
 import { loginSchema } from "@/lib/validations";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
@@ -41,4 +41,9 @@ export async function login(formData: FormData) {
 
   // proxy.tsを発動させる
   redirect("/login");
+}
+
+export async function logout() {
+  // エラーハンドリング不要なのでAuth.jsにリダイレクトを任せる
+  await signOut({ redirectTo: "/login" });
 }
