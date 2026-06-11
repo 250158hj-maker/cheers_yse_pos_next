@@ -18,7 +18,10 @@ export async function login(_prevState: unknown, formData: FormData) {
   });
 
   if (!validated.success) {
-    return { success: false, error: "入力値が不正です" };
+    return {
+      success: false,
+      error: "ログインIDまたはパスワードが正しくありません",
+    };
   }
 
   // Auth.jsによる認証

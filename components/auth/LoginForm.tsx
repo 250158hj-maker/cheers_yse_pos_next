@@ -27,7 +27,6 @@ export default function LoginForm() {
               name="loginId"
               type="text"
               inputMode="numeric"
-              maxLength={4}
               required
             />
           </div>
@@ -40,7 +39,6 @@ export default function LoginForm() {
               name="password"
               type="password"
               inputMode="numeric"
-              maxLength={4}
               required
             />
           </div>
