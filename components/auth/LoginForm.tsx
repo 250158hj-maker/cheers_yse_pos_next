@@ -16,6 +16,7 @@ export default function LoginForm() {
   return (
     <Card>
       <CardContent>
+        {/* Server Actionをフォーム送信時に実行する */}
         <form action={formAction} className="space-y-4">
           <div>
             <label htmlFor="loginId" className="text-sm font-medium">
@@ -46,6 +47,7 @@ export default function LoginForm() {
           {state?.error && (
             <p className="text-sm text-red-600">{state.error}</p>
           )}
+          {/* 入力データ処理中の場合にはボタンを無効化する */}
           <Button type="submit" className="w-full" disabled={isPending}>
             {isPending ? "ログイン中..." : "ログイン"}
           </Button>
