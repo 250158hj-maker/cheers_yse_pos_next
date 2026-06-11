@@ -6,7 +6,10 @@
 "use server";
 
 import { signIn, signOut } from "@/lib/auth";
+import { db } from "@/lib/db";
+import { users } from "@/lib/db/schema";
 import { loginSchema } from "@/lib/validations";
+import { eq } from "drizzle-orm";
 import { AuthError } from "next-auth";
 import { redirect } from "next/navigation";
 
@@ -47,8 +50,16 @@ export async function login(_prevState: unknown, formData: FormData) {
     };
   }
 
-  // proxy.tsを発動させる
-  redirect("/login");
+  // リダイレクト先決定のためにロールをDBから取得
+  // 認証が失敗すればここには到達できない
+  const [user] = await db
+    .select({ isAdmin: users.isAdmin })
+    .from(users)
+    .where(eq(users.loginId, validated.data.loginId))
+    .limit(1);
+
+  // ロールに応じたリダイレクト先を決定（proxy.tsは発動しない）
+  redirect(user?.isAdmin ? "/admin" : "/register");
 }
 
 export async function logout() {
