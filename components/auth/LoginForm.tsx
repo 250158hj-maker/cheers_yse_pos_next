@@ -18,7 +18,7 @@ export default function LoginForm() {
       <CardContent>
         <form action={formAction} className="space-y-4">
           <div>
-            <label htmlFor="loginId" className="text-sm fontfont-medium">
+            <label htmlFor="loginId" className="text-sm font-medium">
               ログインID
             </label>
             <Input
