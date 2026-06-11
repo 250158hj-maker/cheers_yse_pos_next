@@ -6,6 +6,8 @@
 
 import { login } from "@/actions/auth";
 import { useActionState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function LoginForm() {
   const [state, formAction, isPending] = useActionState(login, null);
@@ -13,8 +15,9 @@ export default function LoginForm() {
   return (
     <div>
       <form action="post" method="post">
-        <input type="text" name="loginId" />
-        <input type="password" name="password" />
+        <Input type="text" name="loginId" />
+        <Input type="password" name="password" />
+        <Button />
       </form>
     </div>
   );
